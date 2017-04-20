@@ -1,0 +1,1180 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>classifier (v0.1.0)</a>
+</h1>
+<h4>Naive Bayesian classifier with Redis backend</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier">module classifier</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian">
+            function <span class="apidocSignatureSpan">classifier.</span>Bayesian
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">classifier.</span>Bayesian.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">classifier.</span>bayesian</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">classifier.</span>localStorage</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">classifier.</span>memory</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">classifier.</span>redis</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.Bayesian">module classifier.Bayesian</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.Bayesian">
+            function <span class="apidocSignatureSpan">classifier.</span>Bayesian
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.Bayesian.prototype">module classifier.Bayesian.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.bestMatch">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>bestMatch
+            <span class="apidocSignatureSpan">(probs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.classify">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>classify
+            <span class="apidocSignatureSpan">(doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.classifySync">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>classifySync
+            <span class="apidocSignatureSpan">(doc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.fromJSON">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>fromJSON
+            <span class="apidocSignatureSpan">(json, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getCatProbs">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getCatProbs
+            <span class="apidocSignatureSpan">(cats, words, counts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getCats">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getCats
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getProbs">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getProbs
+            <span class="apidocSignatureSpan">(doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getProbsSync">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getProbsSync
+            <span class="apidocSignatureSpan">(doc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getWordCounts">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getWordCounts
+            <span class="apidocSignatureSpan">(words, cats, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.getWords">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getWords
+            <span class="apidocSignatureSpan">(doc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.incDocCounts">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>incDocCounts
+            <span class="apidocSignatureSpan">(docs, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.setThresholds">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>setThresholds
+            <span class="apidocSignatureSpan">(thresholds)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.test">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>test
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.toJSON">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.train">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>train
+            <span class="apidocSignatureSpan">(doc, cat, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.trainAll">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>trainAll
+            <span class="apidocSignatureSpan">(data, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.Bayesian.prototype.wordProb">
+            function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>wordProb
+            <span class="apidocSignatureSpan">(word, cat, cats, counts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.bayesian">module classifier.bayesian</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.bayesian.Bayesian">
+            function <span class="apidocSignatureSpan">classifier.bayesian.</span>Bayesian
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.localStorage">module classifier.localStorage</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.localStorage.LocalStorageBackend">
+            function <span class="apidocSignatureSpan">classifier.localStorage.</span>LocalStorageBackend
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.memory">module classifier.memory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.memory.MemoryBackend">
+            function <span class="apidocSignatureSpan">classifier.memory.</span>MemoryBackend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.classifier.redis">module classifier.redis</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.classifier.redis.RedisBackend">
+            function <span class="apidocSignatureSpan">classifier.redis.</span>RedisBackend
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier" id="apidoc.module.classifier">module classifier</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian" id="apidoc.element.classifier.Bayesian">
+        function <span class="apidocSignatureSpan">classifier.</span>Bayesian
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Bayesian = function (options) {
+  options = options || {}
+  this.thresholds = options.thresholds || {};
+  this.default = options.default || 'unclassified';
+  this.weight = options.weight || 1;
+  this.assumed = options.assumed || 0.5;
+
+  var backend = options.backend || { type: 'memory' };
+  switch(backend.type.toLowerCase()) {
+    case 'redis':
+      this.backend = new (require("./backends/redis").RedisBackend)(backend.options);
+      break;
+    case 'localstorage':
+      this.backend = new (require("./backends/localStorage")
+                     .LocalStorageBackend)(backend.options);
+      break;
+    default:
+      this.backend = new (require("./backends/memory").MemoryBackend)();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+# classifier
+
+`classifier` is a JavaScript naive [Bayesian classifier](http://en.wikipedia.org/wiki/Bayesian_spam_filtering) with backends for
+ Redis and localStorage:
+
+```javascript
+var bayes = new classifier.<span class="apidocCodeKeywordSpan">Bayesian</span>();
+
+bayes.train("cheap replica watches", 'spam');
+bayes.train("I don't know if this works on windows", 'not');
+
+var category = bayes.classify("free watches");   // "spam"
+```
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.Bayesian" id="apidoc.module.classifier.Bayesian">module classifier.Bayesian</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.Bayesian" id="apidoc.element.classifier.Bayesian.Bayesian">
+        function <span class="apidocSignatureSpan">classifier.</span>Bayesian
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Bayesian = function (options) {
+  options = options || {}
+  this.thresholds = options.thresholds || {};
+  this.default = options.default || 'unclassified';
+  this.weight = options.weight || 1;
+  this.assumed = options.assumed || 0.5;
+
+  var backend = options.backend || { type: 'memory' };
+  switch(backend.type.toLowerCase()) {
+    case 'redis':
+      this.backend = new (require("./backends/redis").RedisBackend)(backend.options);
+      break;
+    case 'localstorage':
+      this.backend = new (require("./backends/localStorage")
+                     .LocalStorageBackend)(backend.options);
+      break;
+    default:
+      this.backend = new (require("./backends/memory").MemoryBackend)();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+# classifier
+
+`classifier` is a JavaScript naive [Bayesian classifier](http://en.wikipedia.org/wiki/Bayesian_spam_filtering) with backends for
+ Redis and localStorage:
+
+```javascript
+var bayes = new classifier.<span class="apidocCodeKeywordSpan">Bayesian</span>();
+
+bayes.train("cheap replica watches", 'spam');
+bayes.train("I don't know if this works on windows", 'not');
+
+var category = bayes.classify("free watches");   // "spam"
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.Bayesian.prototype" id="apidoc.module.classifier.Bayesian.prototype">module classifier.Bayesian.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.bestMatch" id="apidoc.element.classifier.Bayesian.prototype.bestMatch">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>bestMatch
+        <span class="apidocSignatureSpan">(probs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bestMatch = function (probs) {
+  var max = _(probs).reduce(function(max, prob, cat) {
+    return max.prob &gt; prob ? max : {cat: cat, prob: prob};
+  }, {prob: 0});
+
+  var category = max.cat || this.default;
+  var threshold = this.thresholds[max.cat] || 1;
+
+  _(probs).map(function(prob, cat) {
+   if (!(cat == max.cat) &amp;&amp; prob * threshold &gt; max.prob) {
+     category = this.default; // not greater than other category by enough
+   }
+  }, this);
+
+  return category;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+classify : function(doc, callback) {
+  if (!this.backend.async) {
+    return this.classifySync(doc);
+  }
+
+  var that = this;
+  this.getProbs(doc, function(probs) {
+    callback(that.<span class="apidocCodeKeywordSpan">bestMatch</span>(probs));
+  });
+},
+
+classifySync : function(doc) {
+  var probs = this.getProbsSync(doc);
+  return this.bestMatch(probs);
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.classify" id="apidoc.element.classifier.Bayesian.prototype.classify">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>classify
+        <span class="apidocSignatureSpan">(doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">classify = function (doc, callback) {
+  if (!this.backend.async) {
+    return this.classifySync(doc);
+  }
+
+  var that = this;
+  this.getProbs(doc, function(probs) {
+    callback(that.bestMatch(probs));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var bayes = new classifier.Bayesian();
+
+bayes.train("cheap replica watches", 'spam');
+bayes.train("I don't know if this works on windows", 'not');
+
+var category = bayes.<span class="apidocCodeKeywordSpan">classify</span>("free watches");   // "spam"
+```
+
+# using in node
+If you have [node](http://nodejs.org/) you can install with [npm](http://github.com/isaacs/npm):
+
+	npm install classifier
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.classifySync" id="apidoc.element.classifier.Bayesian.prototype.classifySync">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>classifySync
+        <span class="apidocSignatureSpan">(doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">classifySync = function (doc) {
+  var probs = this.getProbsSync(doc);
+  return this.bestMatch(probs);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }, this);
+
+  return category;
+},
+
+classify : function(doc, callback) {
+  if (!this.backend.async) {
+    return this.<span class="apidocCodeKeywordSpan">classifySync</span>(doc);
+  }
+
+  var that = this;
+  this.getProbs(doc, function(probs) {
+    callback(that.bestMatch(probs));
+  });
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.fromJSON" id="apidoc.element.classifier.Bayesian.prototype.fromJSON">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>fromJSON
+        <span class="apidocSignatureSpan">(json, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromJSON = function (json, callback) {
+  this.backend.fromJSON(json, callback);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+# JSON
+You can serialize and load in the classifier's state with JSON:
+
+```javascript
+var json = bayes.toJSON();
+
+bayes.<span class="apidocCodeKeywordSpan">fromJSON</span>(json);
+```
+
+# Other options
+`Bayesian()` takes an options hash that you can define these properties in:
+
+### backend
+The backend property takes a `type` which is one of `'Redis'`, `'localStorage'`, or `'memory'`(default
+). The backend also has an `options` hash. The Redis backend takes `hostname`, `port`, `password`, `name`, `db`, and `error` (an
+ error callback) in its options. The localStorage backend takes `name` for namespacing.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getCatProbs" id="apidoc.element.classifier.Bayesian.prototype.getCatProbs">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getCatProbs
+        <span class="apidocSignatureSpan">(cats, words, counts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCatProbs = function (cats, words, counts) {
+  var numDocs = _(cats).reduce(function(sum, count) {
+    return sum + count;
+  }, 0);
+
+  var probs = {};
+  _(cats).each(function(catCount, cat) {
+    var catProb = (catCount || 0) / numDocs;
+
+    var docProb = _(words).reduce(function(prob, word) {
+      var wordCounts = counts[word] || {};
+      return prob * this.wordProb(word, cat, cats, wordCounts);
+    }, 1, this);
+
+    // the probability this doc is in this category
+    probs[cat] = catProb * docProb;
+  }, this);
+  return probs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+getProbs : function(doc, callback) {
+  var that = this;
+  this.getCats(function(cats) {
+    var words = that.getWords(doc);
+    that.getWordCounts(words, cats, function(counts) {
+      var probs = that.<span class="apidocCodeKeywordSpan">getCatProbs</span>(cats, words, counts);
+      callback(probs);
+    });
+  });
+},
+
+getProbsSync : function(doc) {
+  var words = this.getWords(doc);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getCats" id="apidoc.element.classifier.Bayesian.prototype.getCats">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getCats
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCats = function (callback) {
+  return this.backend.getCats(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+words.forEach(function(word) {
+  counts[word] = this.getWordCount(word);
+}, this);
+return counts;
+  },
+
+  incCounts : function(catIncs, wordIncs) {
+var cats = this.<span class="apidocCodeKeywordSpan">getCats</span>();
+_(catIncs).each(function(inc, cat) {
+  cats[cat] = cats[cat] + inc || inc;
+}, this);
+this.setCats(cats);
+
+_(wordIncs).each(function(incs, word) {
+  var wordCounts = this.getWordCount(word);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getProbs" id="apidoc.element.classifier.Bayesian.prototype.getProbs">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getProbs
+        <span class="apidocSignatureSpan">(doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProbs = function (doc, callback) {
+  var that = this;
+  this.getCats(function(cats) {
+    var words = that.getWords(doc);
+    that.getWordCounts(words, cats, function(counts) {
+      var probs = that.getCatProbs(cats, words, counts);
+      callback(probs);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+classify : function(doc, callback) {
+  if (!this.backend.async) {
+    return this.classifySync(doc);
+  }
+
+  var that = this;
+  this.<span class="apidocCodeKeywordSpan">getProbs</span>(doc, function(probs) {
+    callback(that.bestMatch(probs));
+  });
+},
+
+classifySync : function(doc) {
+  var probs = this.getProbsSync(doc);
+  return this.bestMatch(probs);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getProbsSync" id="apidoc.element.classifier.Bayesian.prototype.getProbsSync">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getProbsSync
+        <span class="apidocSignatureSpan">(doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProbsSync = function (doc) {
+  var words = this.getWords(doc);
+  var cats = this.getCats();
+  var counts = this.getWordCounts(words, cats);
+  return this.getCatProbs(cats, words, counts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var that = this;
+  this.getProbs(doc, function(probs) {
+    callback(that.bestMatch(probs));
+  });
+},
+
+classifySync : function(doc) {
+  var probs = this.<span class="apidocCodeKeywordSpan">getProbsSync</span>(doc);
+  return this.bestMatch(probs);
+},
+
+test : function(data) {
+  // misclassification error
+  var error = 0;
+  data.forEach(function(datum) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getWordCounts" id="apidoc.element.classifier.Bayesian.prototype.getWordCounts">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getWordCounts
+        <span class="apidocSignatureSpan">(words, cats, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWordCounts = function (words, cats, callback) {
+  return this.backend.getWordCounts(words, cats, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Bayesian.prototype = {
+getCats : function(callback) {
+  return this.backend.getCats(callback);
+},
+
+getWordCounts : function(words, cats, callback) {
+  return this.backend.<span class="apidocCodeKeywordSpan">getWordCounts</span>(words, cats, callback);
+},
+
+incDocCounts : function(docs, callback) {
+  // accumulate all the pending increments
+  var wordIncs = {};
+  var catIncs = {};
+  docs.forEach(function(doc) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.getWords" id="apidoc.element.classifier.Bayesian.prototype.getWords">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>getWords
+        <span class="apidocSignatureSpan">(doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWords = function (doc) {
+  if (_(doc).isArray()) {
+    return doc;
+  }
+  var words = doc.split(/\W+/);
+  return _(words).uniq();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// accumulate all the pending increments
+var wordIncs = {};
+var catIncs = {};
+docs.forEach(function(doc) {
+  var cat = doc.cat;
+  catIncs[cat] = catIncs[cat] ? catIncs[cat] + 1 : 1;
+
+  var words = this.<span class="apidocCodeKeywordSpan">getWords</span>(doc.doc);
+  words.forEach(function(word) {
+    wordIncs[word] = wordIncs[word] || {};
+    wordIncs[word][cat] = wordIncs[word][cat] ? wordIncs[word][cat] + 1 : 1;
+  }, this);
+}, this);
+
+return this.backend.incCounts(catIncs, wordIncs, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.incDocCounts" id="apidoc.element.classifier.Bayesian.prototype.incDocCounts">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>incDocCounts
+        <span class="apidocSignatureSpan">(docs, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">incDocCounts = function (docs, callback) {
+  // accumulate all the pending increments
+  var wordIncs = {};
+  var catIncs = {};
+  docs.forEach(function(doc) {
+    var cat = doc.cat;
+    catIncs[cat] = catIncs[cat] ? catIncs[cat] + 1 : 1;
+
+    var words = this.getWords(doc.doc);
+    words.forEach(function(word) {
+      wordIncs[word] = wordIncs[word] || {};
+      wordIncs[word][cat] = wordIncs[word][cat] ? wordIncs[word][cat] + 1 : 1;
+    }, this);
+  }, this);
+
+  return this.backend.incCounts(catIncs, wordIncs, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return doc;
+  }
+  var words = doc.split(/\W+/);
+  return _(words).uniq();
+},
+
+train : function(doc, cat, callback) {
+  this.<span class="apidocCodeKeywordSpan">incDocCounts</span>([{doc: doc, cat: cat}], function(err, ret) {
+    if (callback) {
+      callback(ret);
+    }
+  });
+},
+
+trainAll : function(data, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.setThresholds" id="apidoc.element.classifier.Bayesian.prototype.setThresholds">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>setThresholds
+        <span class="apidocSignatureSpan">(thresholds)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setThresholds = function (thresholds) {
+  this.thresholds = thresholds;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.test" id="apidoc.element.classifier.Bayesian.prototype.test">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>test
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">test = function (data) {
+  // misclassification error
+  var error = 0;
+  data.forEach(function(datum) {
+    var output = this.classify(datum.input);
+    error += output == datum.output ? 0 : 1;
+  }, this);
+  return error / data.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.toJSON" id="apidoc.element.classifier.Bayesian.prototype.toJSON">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function (callback) {
+  return this.backend.toJSON(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+# JSON
+You can serialize and load in the classifier's state with JSON:
+
+```javascript
+var json = bayes.<span class="apidocCodeKeywordSpan">toJSON</span>();
+
+bayes.fromJSON(json);
+```
+
+# Other options
+`Bayesian()` takes an options hash that you can define these properties in:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.train" id="apidoc.element.classifier.Bayesian.prototype.train">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>train
+        <span class="apidocSignatureSpan">(doc, cat, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">train = function (doc, cat, callback) {
+  this.incDocCounts([{doc: doc, cat: cat}], function(err, ret) {
+    if (callback) {
+      callback(ret);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+# classifier
+
+`classifier` is a JavaScript naive [Bayesian classifier](http://en.wikipedia.org/wiki/Bayesian_spam_filtering) with backends for
+ Redis and localStorage:
+
+```javascript
+var bayes = new classifier.Bayesian();
+
+bayes.<span class="apidocCodeKeywordSpan">train</span>("cheap replica watches", 'spam');
+bayes.train("I don't know if this works on windows", 'not');
+
+var category = bayes.classify("free watches");   // "spam"
+```
+
+# using in node
+If you have [node](http://nodejs.org/) you can install with [npm](http://github.com/isaacs/npm):
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.trainAll" id="apidoc.element.classifier.Bayesian.prototype.trainAll">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>trainAll
+        <span class="apidocSignatureSpan">(data, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trainAll = function (data, callback) {
+  data = data.map(function(item) {
+    return {doc: item.input, cat: item.output};
+  });
+  this.incDocCounts(data, function(err, ret) {
+    if (callback) {
+      callback(ret);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var classifier = require("./lib/bayesian");
+
+var bayes = new classifier.Bayesian({
+    backend : { type: 'Redis' }
+  });
+
+bayes.<span class="apidocCodeKeywordSpan">trainAll</span>([], function() {
+    bayes.classify("replica watches", function(cat) {
+      console.log("goes here");
+    });
+  })
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.Bayesian.prototype.wordProb" id="apidoc.element.classifier.Bayesian.prototype.wordProb">
+        function <span class="apidocSignatureSpan">classifier.Bayesian.prototype.</span>wordProb
+        <span class="apidocSignatureSpan">(word, cat, cats, counts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">wordProb = function (word, cat, cats, counts) {
+  // times word appears in a doc in this cat / docs in this cat
+  var prob = (counts[cat] || 0) / cats[cat];
+
+  // get weighted average with assumed so prob won't be extreme on rare words
+  var total = _(cats).reduce(function(sum, p, cat) {
+    return sum + (counts[cat] || 0);
+  }, 0, this);
+  return (this.weight * this.assumed + total * prob) / (this.weight + total);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var probs = {};
+  _(cats).each(function(catCount, cat) {
+    var catProb = (catCount || 0) / numDocs;
+
+    var docProb = _(words).reduce(function(prob, word) {
+      var wordCounts = counts[word] || {};
+      return prob * this.<span class="apidocCodeKeywordSpan">wordProb</span>(word, cat, cats, wordCounts);
+    }, 1, this);
+
+    // the probability this doc is in this category
+    probs[cat] = catProb * docProb;
+  }, this);
+  return probs;
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.bayesian" id="apidoc.module.classifier.bayesian">module classifier.bayesian</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.bayesian.Bayesian" id="apidoc.element.classifier.bayesian.Bayesian">
+        function <span class="apidocSignatureSpan">classifier.bayesian.</span>Bayesian
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Bayesian = function (options) {
+  options = options || {}
+  this.thresholds = options.thresholds || {};
+  this.default = options.default || 'unclassified';
+  this.weight = options.weight || 1;
+  this.assumed = options.assumed || 0.5;
+
+  var backend = options.backend || { type: 'memory' };
+  switch(backend.type.toLowerCase()) {
+    case 'redis':
+      this.backend = new (require("./backends/redis").RedisBackend)(backend.options);
+      break;
+    case 'localstorage':
+      this.backend = new (require("./backends/localStorage")
+                     .LocalStorageBackend)(backend.options);
+      break;
+    default:
+      this.backend = new (require("./backends/memory").MemoryBackend)();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+# classifier
+
+`classifier` is a JavaScript naive [Bayesian classifier](http://en.wikipedia.org/wiki/Bayesian_spam_filtering) with backends for
+ Redis and localStorage:
+
+```javascript
+var bayes = new classifier.<span class="apidocCodeKeywordSpan">Bayesian</span>();
+
+bayes.train("cheap replica watches", 'spam');
+bayes.train("I don't know if this works on windows", 'not');
+
+var category = bayes.classify("free watches");   // "spam"
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.localStorage" id="apidoc.module.classifier.localStorage">module classifier.localStorage</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.localStorage.LocalStorageBackend" id="apidoc.element.classifier.localStorage.LocalStorageBackend">
+        function <span class="apidocSignatureSpan">classifier.localStorage.</span>LocalStorageBackend
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LocalStorageBackend = function (options) {
+  var options = options || {};
+  var name = options.name || Math.floor(Math.random() * 100000);
+
+  this.prefix = 'classifier.bayesian.' + name;
+
+  if (options.testing) {
+    this.storage = {};
+  }
+  else {
+    this.storage = localStorage;
+  }
+
+  this.storage[this.prefix + '.cats'] = '{}';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.memory" id="apidoc.module.classifier.memory">module classifier.memory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.memory.MemoryBackend" id="apidoc.element.classifier.memory.MemoryBackend">
+        function <span class="apidocSignatureSpan">classifier.memory.</span>MemoryBackend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MemoryBackend = function () {
+  this.catCounts = {};
+  this.wordCounts = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.classifier.redis" id="apidoc.module.classifier.redis">module classifier.redis</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.classifier.redis.RedisBackend" id="apidoc.element.classifier.redis.RedisBackend">
+        function <span class="apidocSignatureSpan">classifier.redis.</span>RedisBackend
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">RedisBackend = function (options) {
+  options = options || {};
+  var port = options.port || 6379;
+  var host = options.hostname || "localhost";
+  var opts = options.options || {};
+
+  this.client = function() {
+    var client = redis.createClient(port, host, opts);
+    if (options.error) {
+      client.on('error', options.error);
+    }
+    if (options.password) {
+      client.auth(options.password, options.error);
+    }
+    return client;
+  }
+
+  var name = options.name || Math.floor(Math.random() * 100000);
+  this.catsKey = 'classifier_bayes_cats_' + name;
+  this.wordsKey = 'classifier_bayes_words_' + name;
+
+  if (options.db) {
+    this.client().select(options.db);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
